@@ -8,12 +8,14 @@
 import express from 'express'
 import React from 'react'
 import helmet from 'helmet'
-import fs from 'fs'
 import _ from 'lodash'
 import { renderToString } from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
+import { ServerStyleSheet } from 'styled-components'
+import serialize from 'serialize-javascript'
+import { StaticRouter, matchPath } from 'react-router-dom'
 
 import App from '../shared/app'
+import routes from '../shared/routes'
 
 // Route imports
 import utils from './routes/utils'
@@ -23,22 +25,46 @@ const server = express()
 server.use(helmet())
 server.use(express.static('public'))
 
-// Get template HTML
-const template = _.template(fs.readFileSync('./index.html'))
-
 // Use routes
 utils(server)
 
 server.get('*', (req, res, next) => {
-  const context = {}
+  const activeRoute = _.find(routes, route => matchPath(req.url, route)) || {}
 
-  const body = renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <App />
-    </StaticRouter>
-  )
+  const initPromise = activeRoute.fetchInitialData
+    ? activeRoute.fetchInitialData()
+    : Promise.resolve()
 
-  res.status(200).send(template({ body }))
+  initPromise.then((initialData = null) => {
+    const context = { initialData }
+
+    const sheet = new ServerStyleSheet()
+    const body = renderToString(sheet.collectStyles(
+      <StaticRouter location={req.url} context={context}>
+        <App />
+      </StaticRouter>
+    ))
+    const styledTags = sheet.getStyleTags()
+
+    res.status(200).send(`
+      <!DOCTYPE html>
+        <html>
+          <head>
+            <title>Haydn Morris</title>
+            ${styledTags}
+            <script src="/bundle.js" defer></script>
+            <link rel="stylesheet" type="text/css" href="vendor/normalise.css">
+            <link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+            <script>window.__INITIAL_DATA__ = ${serialize(initialData)}</script>
+          </head>
+
+          <body>
+            <div id="app">${body}</div>
+          </body>
+        </html>
+    `)
+  })
 })
 
 server.listen(3000, () => console.log('listening on port 3000'))

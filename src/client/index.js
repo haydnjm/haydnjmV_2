@@ -7,5 +7,6 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
 import ClientEntry from './ClientEntry'
+import '../shared/styles/animations.css'
 
 hydrate(<ClientEntry />, document.getElementById('app'))
