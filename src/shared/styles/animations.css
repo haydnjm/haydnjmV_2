@@ -1,3 +1,7 @@
+.test-class {
+  margin: 50px;
+}
+
 .right-appear,
 .right-enter {
   transform: translateX(50%);

@@ -6,6 +6,7 @@ import _ from 'lodash'
 import Logo from './Logo'
 
 import { Flexbox } from '../styles/components/blocks'
+import { S3 } from '../../constants/S3'
 
 const Container = styled(Flexbox)`
   background-color: #111;
@@ -73,10 +74,10 @@ class Home extends Component {
           <L to='/about'><H>ABOUT</H></L>
         </Flexbox>
         <Logo x={x} y={y} mob={750} />
-        <Title src='images/home-title-01.png' />
+        <Title src={`${S3}/home-title-01.png`} />
         <Flexbox mob break={750} stretch justify='space-around'>
-          <L to='/about' mob><H>ABOUT</H></L>
-          <L to='/work' mob><H>WORK</H></L>
+          <L to='/about'><H>ABOUT</H></L>
+          <L to='/work'><H>WORK</H></L>
         </Flexbox>
       </Container>
     )

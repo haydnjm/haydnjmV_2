@@ -1,6 +1,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const nodeExternals = require('webpack-node-externals')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const clientConfig = {
   entry: './src/client/index.js',
@@ -14,16 +15,16 @@ const clientConfig = {
       { test: /\.(js)$/, use: 'babel-loader' },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
   plugins: [
     new webpack.DefinePlugin({
       __isClient__: 'true'
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css'
     })
   ]
 }

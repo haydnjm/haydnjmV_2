@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import { S3 } from '../../constants/S3'
+
 const Container = styled.div`
   box-sizing: border-box;
   padding: 30px;
@@ -24,28 +26,28 @@ const Tech = () =>
   <Container>
     <h1>Technology:</h1>
     <Block>
-      <Img src='/images/icons/javascript.png' title='Javascript' />
-      <Img src='/images/icons/react.png' title='React' />
-      <Img src='/images/icons/redux.png' title='Redux' />
-      <Img src='/images/icons/node.png' title='Node' />
-      <Img src='/images/icons/php.png' title='PHP' />
-      <Img src='/images/icons/laravel.png' title='Laravel' />
-      <Img src='/images/icons/jquery.png' title='jQuery' />
+      <Img src={`${S3}/icons/javascript.png`} title='Javascript' />
+      <Img src={`${S3}/icons/react.png`} title='React' />
+      <Img src={`${S3}/icons/redux.png`} title='Redux' />
+      <Img src={`${S3}/icons/node.png`} title='Node' />
+      <Img src={`${S3}/icons/php.png`} title='PHP' />
+      <Img src={`${S3}/icons/laravel.png`} title='Laravel' />
+      <Img src={`${S3}/icons/jquery.png`} title='jQuery' />
     </Block>
     <Block>
-      <Img src='/images/icons/mongo.png' title='MongoDB' />
-      <Img src='/images/icons/mysql.png' title='MySQL' />
+      <Img src={`${S3}/icons/mongo.png`} title='MongoDB' />
+      <Img src={`${S3}/icons/mysql.png`} title='MySQL' />
     </Block>
     <Block>
-      <Img src='/images/icons/aws.png' title='AWS' />
-      <Img src='/images/icons/lambda.png' title='Lambda' />
-      <Img src='/images/icons/s3.png' title='S3' />
-      <Img src='/images/icons/github.png' title='Github' />
-      <Img src='/images/icons/stripe.png' title='Stripe' />
+      <Img src={`${S3}/icons/aws.png`} title='AWS' />
+      <Img src={`${S3}/icons/lambda.png`} title='Lambda' />
+      <Img src={`${S3}/icons/s3.png`} title='S3' />
+      <Img src={`${S3}/icons/github.png`} title='Github' />
+      <Img src={`${S3}/icons/stripe.png`} title='Stripe' />
     </Block>
     <Block>
-      <Img src='/images/icons/illustrator.png' title='Illustrator' />
-      <Img src='/images/icons/photoshop.png' title='Photoshop' />
+      <Img src={`${S3}/icons/illustrator.png`} title='Illustrator' />
+      <Img src={`${S3}/icons/photoshop.png`} title='Photoshop' />
     </Block>
   </Container>
 

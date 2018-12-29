@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { S3 } from '../../constants/S3'
 
 const Wrapper = styled.div`
   display: flex;
@@ -61,10 +62,10 @@ const Circle = styled.img`
 const Logo = ({ x, y, mob }) =>
   <Wrapper mob={mob}>
     <Container>
-      <Img src='/images/fuse logo only.svg' />
-      <Circle style={{ transform: `rotate(${(x + y) * 5 / 50}deg)` }} src='/images/circle1-01.png' />
-      <Circle style={{ transform: `rotate(${(x + y) * -4 / 50}deg)` }} src='/images/circle2-01.png' />
-      <Circle style={{ transform: `rotate(${(x + y) * 3 / 50}deg)` }} src='/images/circle3-01.png' />
+      <Img src={`${S3}/fuse logo only.svg`} />
+      <Circle style={{ transform: `rotate(${(x + y) * 5 / 50}deg)` }} src={`${S3}/circle1-01.png`} />
+      <Circle style={{ transform: `rotate(${(x + y) * -4 / 50}deg)` }} src={`${S3}/circle2-01.png`} />
+      <Circle style={{ transform: `rotate(${(x + y) * 3 / 50}deg)` }} src={`${S3}/circle3-01.png`} />
     </Container>
   </Wrapper>
 
