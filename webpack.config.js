@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const clientConfig = {
-  mode: 'development',
   entry: './src/client/index.js',
   output: {
     path: path.resolve(__dirname, 'public'),
@@ -32,7 +31,6 @@ const clientConfig = {
 }
 
 var serverConfig = {
-  mode: 'development',
   entry: './src/server/index.js',
   target: 'node',
   externals: [nodeExternals()],
