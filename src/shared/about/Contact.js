@@ -29,7 +29,7 @@ const Details = styled.div`
 const DetailRow = styled.div`
   display: flex;
   justify-content: space-around;
-  margin: 20px 0 20px;
+  margin: ${p => p.margin ? p.margin : '20px 0 20px'};
   font-size: 1.25rem;
 `
 
@@ -54,7 +54,7 @@ const Contact = () =>
           <div>Email:</div>
           <div>haydn@haydnjm.com</div>
         </DetailRow>
-        <DetailRow>
+        <DetailRow margin='50px 0 20px'>
           <L href='https://www.linkedin.com/in/haydn-morris-18b1b3a5/' target='_blank' rel='noopener noreferrer'>
             <i className='fab fa-linkedin' />
           </L>
