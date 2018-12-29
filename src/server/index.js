@@ -14,7 +14,7 @@ import { ServerStyleSheet } from 'styled-components'
 import serialize from 'serialize-javascript'
 import { StaticRouter, matchPath } from 'react-router-dom'
 
-import App from '../shared/app'
+import App from '../shared/App'
 import routes from '../shared/routes'
 
 // Route imports
