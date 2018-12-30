@@ -1,13 +1,9 @@
 import React from 'react'
-import styled from 'styled-components'
 import WorkTab from './WorkTab'
-
-const Container = styled.div`
-
-`
+import { S3 } from '../../constants/S3'
 
 const WorkTabs = () =>
-  <Container>
+  <div>
     <WorkTab
       title='Intique'
       link='https://intique.net'
@@ -23,7 +19,7 @@ const WorkTabs = () =>
       text={`Damflask Consulting is a Sheffield based business consulting and coaching network.
         We work with individuals and organisations to improve the quality of their thinking and
         communication, catalysing personal insight, growth, interdependence and fulfilment.`}
-      image='/images/logo light.svg'
+      image={`${S3}/logo+light.svg`}
       stack={['react', 'redux', 'node']}
     />
     <WorkTab
@@ -32,9 +28,9 @@ const WorkTabs = () =>
       text={`Timeline Vintage is a homegrown modern day company with a penchant for all things
         old school, vintage and retro; specialising in furniture but with a growing interest
         in a wider range of merchandise including clothing, watches and bicycles.`}
-      image='/images/logo-body4.svg'
+      image={`${S3}/logo-body4.svg`}
       stack={['laravel', 'jquery', 'mysql', 'php']}
     />
-  </Container>
+  </div>
 
 export default WorkTabs

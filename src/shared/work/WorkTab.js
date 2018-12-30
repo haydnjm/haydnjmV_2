@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import _ from 'lodash'
 import PropTypes from 'prop-types'
+import { S3 } from '../../constants/S3'
 
 const Container = styled.div`
   display: flex;
@@ -81,7 +82,7 @@ const WorkTab = ({
         {
           _.map(
             stack,
-            (item, i) => <Icon key={i} src={`/images/icons/${item}.png`} />
+            (item, i) => <Icon key={i} src={`${S3}/icons/${item}.png`} />
           )
         }
       </Stack>

@@ -69,8 +69,6 @@ server.get('*', (req, res, next) => {
 
 const PORT = process.env.PORT || 4000
 
-console.log('port = ', PORT)
-
 server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
 
 server.use(express.static('public'))
