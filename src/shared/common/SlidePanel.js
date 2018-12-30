@@ -34,10 +34,12 @@ const Back = styled.span`
   ${p => p.dir === 'left' ? 'left: 15px' : 'right: 25px'};
   font-size: 1.2rem;
   border-bottom: 2px solid white;
-  padding: 0 10px 2px;
+  padding: 2px 10px 2px;
   margin-${p => p.dir}: 0px;
   cursor: pointer;
   transition: .3s;
+  background-color: rgba(30,30,30,0.8);
+  border-radius: 3px;
 
   &:hover {
     color: #aaa;
