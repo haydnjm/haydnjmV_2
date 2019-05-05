@@ -11,7 +11,7 @@ const Container = styled.div`
 const Info = () =>
   <Container>
     <p>
-      I am a web developer based in Manchester, UK. I create bespoke web solutions
+      I am a web developer based in Amsterdam, NL. I create bespoke web solutions
       for small businesses.
     </p>
     <p>
