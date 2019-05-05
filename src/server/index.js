@@ -50,7 +50,7 @@ server.get('*', (req, res, next) => {
       <!DOCTYPE html>
         <html>
           <head>
-            <title>Haydn Morris</title>
+            <title>HAYDNJM</title>
             <meta name="viewport" content="width=device-width,initial-scale=1.0">
             ${styledTags}
             <script src="/bundle.js" defer></script>
